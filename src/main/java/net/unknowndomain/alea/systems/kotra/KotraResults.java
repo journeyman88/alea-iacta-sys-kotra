@@ -98,4 +98,14 @@ public class KotraResults extends LocalizedResult
         disasterCount++;
     }
     
+    public int getTriumphCount() 
+    {
+        return triumphCount;
+    }
+    
+    public int getDisasterCount()
+    {
+        return disasterCount;
+    }
+    
 }
