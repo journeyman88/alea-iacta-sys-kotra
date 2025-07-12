@@ -15,39 +15,44 @@
  */
 package net.unknowndomain.alea.systems.kotra;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Instance;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import java.util.Locale;
 import java.util.Optional;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.unknowndomain.alea.registry.HistoryRegistry;
 import net.unknowndomain.alea.systems.RpgSystemCommand;
 import net.unknowndomain.alea.systems.RpgSystemDescriptor;
 import net.unknowndomain.alea.roll.GenericRoll;
 import net.unknowndomain.alea.systems.RpgSystemOptions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author journeyman
  */
+@Named
+@ApplicationScoped
+@Slf4j
+@NoArgsConstructor
 public class KotraCommand extends RpgSystemCommand
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(KotraCommand.class);
     private static final RpgSystemDescriptor DESC = new RpgSystemDescriptor("Knights of the Round Academy", "kotra", "knights-of-the-round-academy");
     
-    public KotraCommand()
-    {
-        
+    @Inject
+    private Instance<HistoryRegistry> historyRegistry;
+
+    @Override
+    protected Optional<HistoryRegistry> getHistoryRegistry() {
+        return historyRegistry.stream().findFirst();
     }
     
     @Override
     public RpgSystemDescriptor getCommandDesc()
     {
         return DESC;
-    }
-
-    @Override
-    protected Logger getLogger()
-    {
-        return LOGGER;
     }
 
     @Override
