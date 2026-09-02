@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Marco Bignami.
+ * Copyright 2025 m.bignami.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.unknowndomain.alea.systems.kotra;
 
-/**
- *
- * @author journeyman
- */
-public enum KotraModifiers
-{
-    VERBOSE,
-    OVERDRIVE
+module net.unknowndomain.alea.systems.kotra {
+    requires net.unknowndomain.alea.core;
+    requires org.slf4j;
+    requires static lombok;
+    opens net.unknowndomain.alea.systems.kotra to net.unknowndomain.alea.core;
+    provides net.unknowndomain.alea.systems.RpgSystemCommand with net.unknowndomain.alea.systems.kotra.KotraCommand;
 }
