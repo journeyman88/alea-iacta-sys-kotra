@@ -136,14 +136,14 @@ public class KotraRoll implements GenericRoll
         KotraResults results = new KotraResults(allRes);
         for (SingleResult<Integer> pos : positiveResults)
         {
-            if (pos.getValue() == 12)
+            if (pos.value() == 12)
             {
                 results.addTriumph();
             }
         }
         for (SingleResult<Integer> neg : negativeResults)
         {
-            if (neg.getValue() == 1)
+            if (neg.value() == 1)
             {
                 results.addDisaster();
             }
@@ -151,12 +151,12 @@ public class KotraRoll implements GenericRoll
         int maxPos = 1;
         if (!positiveResults.isEmpty())
         {
-            maxPos = positiveResults.get(0).getValue();
+            maxPos = positiveResults.get(0).value();
         }
         int maxNeg = 6;
         if (!negativeResults.isEmpty())
         {
-            maxNeg = negativeResults.get(0).getValue();
+            maxNeg = negativeResults.get(0).value();
         }
         if (maxPos >= 6)
         {

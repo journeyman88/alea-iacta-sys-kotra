@@ -20,4 +20,5 @@ module net.unknowndomain.alea.systems.kotra {
     requires static lombok;
     opens net.unknowndomain.alea.systems.kotra to net.unknowndomain.alea.core;
     provides net.unknowndomain.alea.systems.RpgSystemCommand with net.unknowndomain.alea.systems.kotra.KotraCommand;
+    provides net.unknowndomain.alea.systems.results.ResultCodec with net.unknowndomain.alea.systems.kotra.KotraResultsCodec;
 }

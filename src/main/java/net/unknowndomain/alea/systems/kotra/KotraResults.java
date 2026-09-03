@@ -21,19 +21,21 @@ import java.util.List;
 import net.unknowndomain.alea.messages.MsgBuilder;
 import net.unknowndomain.alea.random.SingleResult;
 import net.unknowndomain.alea.roll.LocalizedResult;
+import net.unknowndomain.alea.systems.annotations.RpgSystemResult;
 
 /**
  *
  * @author journeyman
  */
+@RpgSystemResult(typeId = "kotra")
 public class KotraResults extends LocalizedResult
 {
     private final static String BUNDLE_NAME = "net.unknowndomain.alea.systems.kotra.RpgSystemBundle";
-    
-    private final List<SingleResult<Integer>> diceResults;
-    private int successLevel = 0;
-    private int triumphCount = 0;
-    private int disasterCount = 0;
+
+    final List<SingleResult<Integer>> diceResults;
+    int successLevel = 0;
+    int triumphCount = 0;
+    int disasterCount = 0;
     
     public KotraResults(List<SingleResult<Integer>> results)
     {
@@ -65,8 +67,8 @@ public class KotraResults extends LocalizedResult
             messageBuilder.append(translate("kotra.results.diceResults")).append(" [ ");
             for (SingleResult<Integer> t : getResults())
             {
-                messageBuilder.append("( ").append(t.getLabel()).append(" => ");
-                messageBuilder.append(t.getValue()).append(") ");
+                messageBuilder.append("( ").append(t.label()).append(" => ");
+                messageBuilder.append(t.value()).append(") ");
             }
             messageBuilder.append("]").appendNewLine();
         }
@@ -107,5 +109,10 @@ public class KotraResults extends LocalizedResult
     {
         return disasterCount;
     }
-    
+
+    void restoreUuid(String uuid)
+    {
+        setUuid(uuid);
+    }
+
 }

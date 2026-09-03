@@ -31,15 +31,15 @@ import net.unknowndomain.alea.systems.annotations.RpgSystemOption;
 public class KotraOptions extends RpgSystemOptions
 {
     @RpgSystemOption(name = "limit-dice", shortcode = "l", description = "kotra.options.limit", argName = "numberOfLimitDice")
-    private Integer limitNumber;
+    Integer limitNumber;
     @RpgSystemOption(name = "trait-dice", shortcode = "t", description = "kotra.options.traits", argName = "numberOfTraitDice")
-    private Integer traitNumber;
+    Integer traitNumber;
     @RpgSystemOption(name = "difficulty-dice", shortcode = "d", description = "kotra.options.difficulty", argName = "numberOfDifficultyDice")
-    private Integer difficultyNumber;
+    Integer difficultyNumber;
     @RpgSystemOption(name = "threat-dice", shortcode = "h", description = "kotra.options.threat", argName = "numberOfThreatDice")
-    private Integer threatNumber;
+    Integer threatNumber;
     @RpgSystemOption(name = "overdrive", shortcode = "o", description = "kotra.options.overdrive")
-    private boolean overdrive;
+    boolean overdrive;
                         
     @Override
     public boolean isValid()
